@@ -59,6 +59,12 @@
   ```
 {{- end }}
 
+{{ $listNum}}. Specify the k8s Namespaces that Cryostat should query for target JVMs:
+  ```
+  kubectl -n {{ .Release.Namespace }} set env deploy --containers={{ .Chart.Name }} {{ include "cryostat.fullname" . }} CRYOSTAT_K8S_NAMESPACES=default,myns1,myns2
+  ```
+{{- $listNum = add1 $listNum }}
+
 {{- if not (empty $portForwards) }}
 
 {{ $listNum }}. Forward local ports to the application's pod:

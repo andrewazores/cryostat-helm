@@ -62,6 +62,8 @@ core:
       - ALL
   ## @param core.databaseSecretName Name of the secret to extract password for credentials database.
   databaseSecretName: ""
+  ## @param core.k8sNamespaces Comma-separated list of namespaces that the Cryostat instance should query for target JVMs
+  k8sNamespaces: ""
 
 ## @section Grafana Container
 ## @extra grafana Configuration for the customized Grafana instance for Cryostat

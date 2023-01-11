@@ -49,6 +49,8 @@ spec:
             value: "{{ if .Values.core.ingress.enabled }}{{ with index .Values.core.ingress.hosts 0 }}{{ .host }}{{ end }}{{ end }}"
           - name: CRYOSTAT_PLATFORM
             value: io.cryostat.platform.internal.KubeApiPlatformStrategy
+          - name: CRYOSTAT_K8S_NAMESPACES
+            value: "{{ .Values.core.k8sNamespaces }}"
           - name: CRYOSTAT_AUTH_MANAGER
             value: io.cryostat.net.NoopAuthManager
           - name: GRAFANA_DATASOURCE_URL
